@@ -11,6 +11,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const notesRoutes = require("../routes/route");
-app.use("/note", notesRoutes);
+app.use("/notes", notesRoutes);
 
 module.exports = app;

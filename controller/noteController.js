@@ -9,7 +9,7 @@ const getAllNotes = async (req, res) => {
   }
 };
 
-const postNote = async () => {
+const postNote = async (req, res) => {
   const note = new Note({
     title: req.body.title,
     details: req.body.details,
@@ -22,7 +22,7 @@ const postNote = async () => {
     res.status(400).json({ message: err.message });
   }
 };
-const updateNote = async () => {
+const updateNote = async (req, res) => {
   let idToUpdate = req.params.id;
   let obj = req.body;
   try {
@@ -35,8 +35,9 @@ const updateNote = async () => {
   }
 };
 
-const deleteNote = async () => {
+const deleteNote = async (req, res) => {
   const idToDelete = req.params.id;
+  console.log(idToDelete);
   try {
     await Note.findByIdAndDelete(idToDelete);
     res.status(204).json({ message: "User Deleted" });
